@@ -12,7 +12,12 @@ function scopedProjects(user, projects) {
     return projects.filter(project => project.userId === user.id)
   }
 
-module.exports = {
-  canViewProject,
-  scopedProjects
-}
+  function canDeleteProject(user, project) {
+    return project.userId === user.id
+  }
+  
+  module.exports = {
+    canViewProject,
+    scopedProjects,
+    canDeleteProject
+  }
